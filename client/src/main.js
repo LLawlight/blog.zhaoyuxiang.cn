@@ -1,28 +1,23 @@
 import Vue from 'vue'
-import VueRouter from 'vue-router'
 import VueResource from 'vue-resource'
 
-import App from './App'
-import Home from '@/pages/home'
+import config from '../../server/config'
+import router from './router'
+import store from './store'
 
-Vue.use(VueRouter)
+import App from './App'
+
+window.__apiBase = 'http://localhost:3000/api/'
+window.__config = config
+
 Vue.use(VueResource)
 
 Vue.http.options.emulateJSON = true
 
-const router = new VueRouter({
-  routes: [
-    {
-      path: '/',
-      name: 'home',
-      component: Home
-    }
-  ]
-})
-
 new Vue({
   el: '#app',
   router,
+  store,
   template: '<App/>',
   components: { App }
 })

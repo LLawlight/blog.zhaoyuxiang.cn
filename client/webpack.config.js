@@ -14,8 +14,9 @@ module.exports = (env) => {
     },
 
     output: {
-      filename: '[name].[chunkhash].js',
-      path: path.resolve(__dirname, 'dist')
+      filename: '[name].js',
+      path: path.resolve(__dirname, 'dist'),
+      publicPath: '/'
     },
 
     resolve: {
@@ -30,7 +31,15 @@ module.exports = (env) => {
       rules: [
         {
           test: /\.vue$/,
-          use: 'vue-loader'
+          loader: 'vue-loader',
+          options: {
+            loaders: {
+              css: ExtractTextPlugin.extract({
+                use: ['css-loader'],
+                fallback: 'vue-style-loader'
+              })
+            }
+          }
         },
         {
           test: /\.js$/,
@@ -49,14 +58,21 @@ module.exports = (env) => {
         }
       }),
       new webpack.optimize.CommonsChunkPlugin({
-        name: 'manifest' //But since there are no more common modules between them we end up with just the runtime code included in the manifest file
+        name: 'manifest', //But since there are no more common modules between them we end up with just the runtime code included in the manifest file
+        chunks: ['vendor']
       }),
       new ExtractTextPlugin('styles.css'),
       new HtmlWebpackPlugin({
         filename: 'index.html',
         template: 'index.html',
         inject: true
-      })
-    ]
+      }),
+      new webpack.HotModuleReplacementPlugin()
+    ],
+
+    devServer: {
+      hot: true,
+      historyApiFallback: true
+    },
   }
 }
