@@ -3,6 +3,13 @@ const User    = models.User;
 const utility = require('utility');
 const uuid    = require('node-uuid');
 
+exports.getUserById = function (id, callback) {
+  if (!id) {
+    return callback();
+  }
+  User.findOne({_id: id}, callback);
+};
+
 exports.getUsersByQuery = function (query, opt, callback) {
   User.find(query, '', opt, callback);
 };

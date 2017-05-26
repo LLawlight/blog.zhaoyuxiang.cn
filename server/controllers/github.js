@@ -1,10 +1,10 @@
-var Models         = require('../models');
-var User           = Models.User;
-var authMiddleWare = require('../middlewares/auth');
-var tools          = require('../common/tools');
-var eventproxy     = require('eventproxy');
-var uuid           = require('node-uuid');
-var validator      = require('validator');
+const Models         = require('../models');
+const User           = Models.User;
+const authMiddleWare = require('../middlewares/auth');
+const tools          = require('../common/tools');
+const eventproxy     = require('eventproxy');
+const uuid           = require('node-uuid');
+const validator      = require('validator');
 
 exports.callback = function (req, res, next) {
   var profile = req.user;
@@ -27,6 +27,7 @@ exports.callback = function (req, res, next) {
       user.email = profile.email || user.email;
 
       user.save(() => {
+        authMiddleWare.gen_session(user, res);
         res.json({
           status: '200',
           message: 'success',
@@ -36,7 +37,8 @@ exports.callback = function (req, res, next) {
     } else {
       // 如果用户还未存在，则建立新用户
       req.session.profile = profile;
-      create(profile, () => {
+      create(profile, (user) => {
+        authMiddleWare.gen_session(user, res);
         res.json({
           status: '200',
           message: 'success',
@@ -59,5 +61,5 @@ function create(profile, callback) {
     active: true,
     accessToken: uuid.v4(),
   });
-  user.save(callback);
+  user.save(callback(user));
 }

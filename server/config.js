@@ -3,8 +3,19 @@ const config = {
 
   port: '3000',
 
+  session_secret: 'blog_zhaoyuxiang_secret',
+  auth_cookie_name: 'blog_zhaoyuxiang',
+
+  // mongo 配置，默认是本地
+  mongo_host: '127.0.0.1',
+  mongo_port: 27017,
+  mongo_db: 'blog_zhaoyuxiang',
+  mongo_password: '',
+
   // 是否允许直接注册（否则只能走 github 的方式）
   allow_sign_up: true,
+
+  admins: { user_login_name: true },
 
   // github 登陆的配置
   GITHUB_OAUTH: {

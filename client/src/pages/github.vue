@@ -19,7 +19,6 @@ export default {
           }
         }
       ).then((res) => {
-        console.log('验证成功！');
         this.$store.commit('getUserInfo', res.data)
         this.$router.replace('/')
       }, (res) => {

@@ -9,6 +9,24 @@
 Vue.http.options.emulateJSON = true;
 ```
 
+2. 请求接口时如果要发送cookie，前端需要设置
+```js
+Vue.http.options.credentials = true
+// or
+Vue.http.interceptors.push((request, next) => {
+  request.credentials = true;
+  next();
+});
+```
+后端需要设置
+```js
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Credentials', true);
+  res.header('Access-Control-Allow-Origin', '指定域名'); // 不能为'*'
+  next();
+})
+```
+
 ### webpack
 
 1. 在webpack-dev-server中使用hot，output中不应该使用[chunkhash]，否则编译失败。（实际上在开发模式下都不应该使用hash）

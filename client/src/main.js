@@ -13,6 +13,7 @@ window.__config = config
 Vue.use(VueResource)
 
 Vue.http.options.emulateJSON = true
+Vue.http.options.credentials = true
 
 new Vue({
   el: '#app',

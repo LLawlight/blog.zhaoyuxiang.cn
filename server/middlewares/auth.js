@@ -1,3 +1,9 @@
+const eventproxy = require('eventproxy');
+const mongoose   = require('mongoose');
+const UserModel  = mongoose.model('User');
+const config     = require('../config');
+const UserProxy  = require('../proxy').User;
+
 function gen_session(user, res) {
   var auth_token = user._id + '$$$$'; // 以后可能会存储更多信息，用 $$$$ 来分隔
   var opts = {
@@ -10,3 +16,38 @@ function gen_session(user, res) {
 }
 
 exports.gen_session = gen_session;
+
+// 验证用户是否登录
+exports.authUser = function (req, res, next) {
+  var ep = new eventproxy();
+  ep.fail(next);
+
+  // Ensure current_user always has defined.
+  res.locals.current_user = null;
+
+  ep.all('get_user', function (user) {
+    if (!user) {
+      return next();
+    }
+    user = res.locals.current_user = req.session.user = new UserModel(user);
+
+    if (config.admins.hasOwnProperty(user.loginname)) {
+      user.is_admin = true;
+    }
+
+    next();
+  });
+
+  if (req.session.user) {
+    ep.emit('get_user', req.session.user);
+  } else {
+    var auth_token = req.signedCookies[config.auth_cookie_name];
+    if (!auth_token) {
+      return next();
+    }
+
+    var auth = auth_token.split('$$$$');
+    var user_id = auth[0];
+    UserProxy.getUserById(user_id, ep.done('get_user'));
+  }
+};
