@@ -2,11 +2,13 @@ const express          = require('express');
 const passport         = require('passport');
 
 const config           = require('./config');
+const auth             = require('./middlewares/auth');
 const configMiddleware = require('./middlewares/conf');
 const github           = require('./controllers/github');
 // const limit            = require('./middlewares/limit');
 const sign             = require('./controllers/sign');
 const userController   = require('./api/v1/user');
+const topicController   = require('./api/v1/topic');
 
 const router           = express.Router();
 
@@ -28,5 +30,9 @@ if (config.allow_sign_up) {
 router.get('/auth/github/callback',
   passport.authenticate('github', { failureRedirect: '/signin' }),
   github.callback);
+
+// 保存新建的文章
+router.post('/topic/create', auth.adminRequired, topicController.put);
+router.get('/topics', topicController.index);
 
 module.exports = router;

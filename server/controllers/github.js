@@ -1,10 +1,10 @@
-const Models         = require('../models');
-const User           = Models.User;
-const authMiddleWare = require('../middlewares/auth');
-const tools          = require('../common/tools');
-const eventproxy     = require('eventproxy');
-const uuid           = require('node-uuid');
-const validator      = require('validator');
+var Models         = require('../models');
+var User           = Models.User;
+var authMiddleWare = require('../middlewares/auth');
+var tools          = require('../common/tools');
+var eventproxy     = require('eventproxy');
+var uuid           = require('node-uuid');
+var validator      = require('validator');
 
 exports.callback = function (req, res, next) {
   var profile = req.user;

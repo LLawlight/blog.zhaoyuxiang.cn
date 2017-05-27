@@ -1,4 +1,4 @@
-const config = require('../config');
+var config = require('../config');
 
 exports.github = function (req, res, next) {
   if (config.GITHUB_OAUTH.clientID === 'your GITHUB_CLIENT_ID') {

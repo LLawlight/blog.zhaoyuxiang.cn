@@ -1,8 +1,34 @@
-const eventproxy = require('eventproxy');
-const mongoose   = require('mongoose');
-const UserModel  = mongoose.model('User');
-const config     = require('../config');
-const UserProxy  = require('../proxy').User;
+var eventproxy = require('eventproxy');
+var mongoose   = require('mongoose');
+var UserModel  = mongoose.model('User');
+var config     = require('../config');
+var UserProxy  = require('../proxy').User;
+
+/**
+ * 需要管理员权限
+ */
+exports.adminRequired = function (req, res, next) {
+  if (!req.session.user) {
+    return res.json({ error: '你还没有登录。' });
+  }
+
+  if (!req.session.user.is_admin) {
+    return res.status(403).json({ error: '需要管理员权限。' });
+  }
+
+  next();
+};
+
+/**
+ * 需要登录
+ */
+exports.userRequired = function (req, res, next) {
+  if (!req.session || !req.session.user || !req.session.user._id) {
+    return res.status(403).send('forbidden!');
+  }
+
+  next();
+};
 
 function gen_session(user, res) {
   var auth_token = user._id + '$$$$'; // 以后可能会存储更多信息，用 $$$$ 来分隔

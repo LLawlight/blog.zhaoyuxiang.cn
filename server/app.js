@@ -5,11 +5,12 @@ const session    = require('express-session');
 const mongoose   = require('mongoose');
 const MongoStore = require('connect-mongo')(session);
 
-const apiRouterV1 = require('./api_router_v1');
-const auth        = require('./middlewares/auth');
 const config      = require('./config');
 
 require('./models');
+
+const apiRouterV1 = require('./api_router_v1');
+const auth        = require('./middlewares/auth');
 
 // passport
 const passport = require('passport')

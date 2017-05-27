@@ -1,5 +1,5 @@
-const mongoose = require('mongoose');
-const config   = require('../config');
+var mongoose = require('mongoose');
+var config   = require('../config');
 
 mongoose.connect(config.db, {
   server: {poolSize: 20}
@@ -11,5 +11,7 @@ mongoose.connect(config.db, {
 });
 
 require('./user');
+require('./topic');
 
 exports.User = mongoose.model('User');
+exports.Topic = mongoose.model('Topic');

@@ -1,7 +1,9 @@
 const config = {
   db: 'mongodb://127.0.0.1/blog_zhaoyuxiang',
 
-  port: '3000',
+  port: 3000,
+
+  list_count: 20,
 
   session_secret: 'blog_zhaoyuxiang_secret',
   auth_cookie_name: 'blog_zhaoyuxiang',
@@ -15,7 +17,7 @@ const config = {
   // 是否允许直接注册（否则只能走 github 的方式）
   allow_sign_up: true,
 
-  admins: { user_login_name: true },
+  admins: { LLawlight: true },
 
   // github 登陆的配置
   GITHUB_OAUTH: {

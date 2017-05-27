@@ -18,14 +18,6 @@ Vue.http.interceptors.push((request, next) => {
   next();
 });
 ```
-后端需要设置
-```js
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Credentials', true);
-  res.header('Access-Control-Allow-Origin', '指定域名'); // 不能为'*'
-  next();
-})
-```
 
 ### webpack
 
@@ -41,4 +33,13 @@ app.use((req, res, next) => {
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 app.use(multer()); // for parsing multipart/form-data
+```
+
+2. 针对vue-resource的credentials，后端需要设置
+```js
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Credentials', true);
+  res.header('Access-Control-Allow-Origin', '指定域名'); // 不能为'*'
+  next();
+})
 ```

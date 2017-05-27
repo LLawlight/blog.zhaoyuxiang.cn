@@ -1,7 +1,7 @@
-const models  = require('../models');
-const User    = models.User;
-const utility = require('utility');
-const uuid    = require('node-uuid');
+var models  = require('../models');
+var User    = models.User;
+var utility = require('utility');
+var uuid    = require('node-uuid');
 
 exports.getUserById = function (id, callback) {
   if (!id) {

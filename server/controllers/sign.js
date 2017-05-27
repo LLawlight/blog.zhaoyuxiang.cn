@@ -1,6 +1,6 @@
-const validator  = require('validator');
-const eventproxy = require('eventproxy');
-const User       = require('../proxy').User;
+var validator  = require('validator');
+var eventproxy = require('eventproxy');
+var User       = require('../proxy').User;
 
 exports.signup = (req, res, next) => {
   let loginname = validator.trim(req.body.loginname).toLowerCase();
