@@ -1,17 +1,46 @@
 <template lang="html">
   <div class="page-index">
-    <i class="iconfont icon-logo"></i>
-    <a @click="goUrl">登录</a>
+    <div class="posts">
+      <post-card
+        v-for="post in posts"
+        :key="post.id"
+        :post-info="post"
+      ></post-card>
+    </div>
   </div>
 </template>
 
 <script>
+import postCard from '@/components/postCard'
+
 export default {
   name: 'page-index',
+
+  data() {
+    return {
+      posts: [],
+      backgroundImage: 'https://www.dujin.org/sys/bing/1920.php'
+    }
+  },
+
+  components: {
+    postCard
+  },
+
+  created() {
+    this.getPosts()
+  },
 
   methods: {
     goUrl() {
       window.location.href = __config.GITHUB_OAUTH_ADDRESS
+    },
+
+    getPosts() {
+      this.$http.get(`${__apiBase}v1/posts`)
+      .then((res) => {
+        this.posts = res.data.data
+      })
     }
   }
 };
@@ -20,26 +49,7 @@ export default {
 <style lang='less'>
 .page-index {
   height: 100%;
-  background: linear-gradient(to bottom left, #a9e2ff, #78a7ff);
-
-  i {
-    position: fixed;
-    left: 50%;
-    top: 35%;
-    transform: translate(-50%, -50%);
-    color: white;
-    font-size: 300px;
-  }
-
-  a {
-    position: fixed;
-    left: 50%;
-    top: 65%;
-    transform: translate(-50%, -50%);
-    border: 1px solid white;
-    padding: 10px 50px;
-    border-radius: 5px;
-    color: white;
-  }
+  background-position: center;
+  background-attachment: fixed;
 }
 </style>

@@ -2,8 +2,11 @@ var mongoose  = require('mongoose');
 var Schema    = mongoose.Schema;
 var ObjectId  = Schema.ObjectId;
 var _         = require('lodash');
+var removeMd = require('remove-markdown');
+var moment = require('moment');
+moment.locale('zh-cn');
 
-var TopicSchema = new Schema({
+var PostSchema = new Schema({
   title: { type: String },
   content: { type: String },
   author_id: { type: ObjectId },
@@ -22,8 +25,18 @@ var TopicSchema = new Schema({
   deleted: {type: Boolean, default: false},
 });
 
-TopicSchema.index({create_at: -1});
-TopicSchema.index({top: -1, last_reply_at: -1});
-TopicSchema.index({author_id: 1, create_at: -1});
+PostSchema.virtual('summary').get(function() {
+  var summary = removeMd(this.content).slice(0, 88);
 
-mongoose.model('Topic', TopicSchema);
+  return summary;
+});
+
+PostSchema.virtual('create_at_ago').get(function() {
+  return moment(this.create_at).format('YYYY年M月D日 HH:mm');
+});
+
+PostSchema.index({create_at: -1});
+PostSchema.index({top: -1, last_reply_at: -1});
+PostSchema.index({author_id: 1, create_at: -1});
+
+mongoose.model('Post', PostSchema);

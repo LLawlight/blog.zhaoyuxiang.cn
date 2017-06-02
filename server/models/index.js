@@ -11,7 +11,7 @@ mongoose.connect(config.db, {
 });
 
 require('./user');
-require('./topic');
+require('./post');
 
 exports.User = mongoose.model('User');
-exports.Topic = mongoose.model('Topic');
+exports.Post = mongoose.model('Post');

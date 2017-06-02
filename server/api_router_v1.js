@@ -8,7 +8,7 @@ const github           = require('./controllers/github');
 // const limit            = require('./middlewares/limit');
 const sign             = require('./controllers/sign');
 const userController   = require('./api/v1/user');
-const topicController   = require('./api/v1/topic');
+const postController   = require('./api/v1/post');
 
 const router           = express.Router();
 
@@ -32,7 +32,9 @@ router.get('/auth/github/callback',
   github.callback);
 
 // 保存新建的文章
-router.post('/topic/create', auth.adminRequired, topicController.put);
-router.get('/topics', topicController.index);
+router.post('/post/create', auth.adminRequired, postController.put);
+router.get('/posts', postController.index);
+router.get('/post/edit', postController.showEdit);
+router.post('/post/update', postController.update);
 
 module.exports = router;

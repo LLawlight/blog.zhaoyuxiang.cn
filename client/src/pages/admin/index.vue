@@ -4,9 +4,7 @@
       <router-link to="/admin/list">列表</router-link>
       <router-link to="/admin/create">写文章</router-link>
     </div>
-    <keep-alive>
-      <router-view></router-view>
-    </keep-alive>
+    <router-view></router-view>
   </div>
 </template>
 

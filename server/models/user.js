@@ -19,12 +19,12 @@ var UserSchema = new Schema({
   githubAccessToken: {type: String},
   is_block: {type: Boolean, default: false},
 
-  topic_count: { type: Number, default: 0 },
+  post_count: { type: Number, default: 0 },
   reply_count: { type: Number, default: 0 },
   follower_count: { type: Number, default: 0 },
   following_count: { type: Number, default: 0 },
   collect_tag_count: { type: Number, default: 0 },
-  collect_topic_count: { type: Number, default: 0 },
+  collect_post_count: { type: Number, default: 0 },
   create_at: { type: Date, default: Date.now },
   update_at: { type: Date, default: Date.now },
   is_star: { type: Boolean },
@@ -35,10 +35,10 @@ var UserSchema = new Schema({
   receive_at_mail: { type: Boolean, default: false },
   from_wp: { type: Boolean },
 
-  accessToken: {type: String},
+  accessToken: {type: String}
 });
 
-UserSchema.virtual('avatar_url').get(() => {
+UserSchema.virtual('avatar_url').get(function() {
   var url = this.avatar || ('https://gravatar.com/avatar/' + utility.md5(this.email.toLowerCase()) + '?size=48');
 
   // www.gravatar.com 被墙
