@@ -5,10 +5,16 @@
   </footer>
 </template>
 
+<script>
+export default {
+  name: 'z-footer'
+};
+</script>
+
 <style lang="less">
 footer {
   width: 100%;
-  padding: 10px 0;
+  padding: 16px 0;
   color: #999;
   text-align: center;
   font-size: 12px;

@@ -20,7 +20,7 @@
     "validator": "^7.0.0"
   },
   "scripts": {
-    "dev": "node app.js"
+    "start": "node app.js"
   },
   "dependencies": {
     "moment": "^2.18.1",

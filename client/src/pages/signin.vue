@@ -19,7 +19,7 @@ export default {
 
 <style lang='less'>
 .page-signin {
-  height: 100%;
+  height: 100vh;
   background: linear-gradient(to bottom left, #a9e2ff, #78a7ff);
 
   i {

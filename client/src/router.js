@@ -1,9 +1,13 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
-import index from '@/pages/index'
+import home from '@/pages/home'
+import friends from '@/pages/friends'
+import post from '@/pages/post'
 import signin from '@/pages/signin'
 import github from '@/pages/github'
+
+// 管理后台
 import admin from '@/pages/admin/index'
 import create from '@/pages/admin/create'
 import list from '@/pages/admin/list'
@@ -17,7 +21,23 @@ export default new VueRouter({
   routes: [
     {
       path: '/',
-      component: index
+      redirect: '/home'
+    },
+
+    {
+      path: '/home',
+      component: home
+    },
+
+    {
+      path: '/friends',
+      component: friends
+    },
+
+
+    {
+      path: '/post/:id',
+      component: post
     },
 
     {

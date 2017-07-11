@@ -31,7 +31,11 @@ router.get('/auth/github/callback',
   passport.authenticate('github', { failureRedirect: '/signin' }),
   github.callback);
 
-// 保存新建的文章
+// 用户类
+router.get('/user/login', userController.login);
+
+// 文章类
+router.get('/post/:id', postController.show);
 router.post('/post/create', auth.adminRequired, postController.put);
 router.get('/posts', postController.index);
 router.get('/post/edit', postController.showEdit);

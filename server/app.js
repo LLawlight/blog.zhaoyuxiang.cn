@@ -45,14 +45,22 @@ passport.use(new GitHubStrategy(config.GITHUB_OAUTH, githubStrategyMiddleware));
 
 app.use(auth.authUser);
 
-const corsOptions = {
-  origin: 'http://localhost:8080',
-  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+var whitelist = ['http://localhost:8080', 'http://localhost:8000', 'http://zhaoyuxiang.cn', 'http://zhaoyuxiang.cn', 'http://blog.zhaoyuxiang.cn']
+var corsOptions = {
+  origin: function (origin, callback) {
+    if (whitelist.indexOf(origin) !== -1) {
+      callback(null, true)
+    } else {
+      callback(new Error('Not allowed by CORS'))
+    }
+  }
 }
+
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Credentials', true);
   next();
 })
+
 app.use('/api/v1', cors(corsOptions), apiRouterV1);
 
 app.listen(config.port, function () {

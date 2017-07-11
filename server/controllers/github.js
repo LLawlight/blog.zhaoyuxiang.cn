@@ -11,7 +11,7 @@ exports.callback = function (req, res, next) {
   profile.email = profile.emails && profile.emails[0] && profile.emails[0].value;
   var userInfo = {
     avatar: profile._json.avatar_url,
-    name: profile.username
+    loginname: profile.username
   }
   User.findOne({githubId: profile.id}, function (err, user) {
     if (err) {

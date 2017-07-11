@@ -19,7 +19,7 @@ export default {
           }
         }
       ).then((res) => {
-        this.$store.commit('getUserInfo', res.data)
+        this.$store.commit('getUserInfo', res.data.data)
         this.$router.replace('/')
       }, (res) => {
         console.log('验证失败！');

@@ -1,19 +1,16 @@
 <template lang="html">
   <div id="app">
-    <router-view></router-view>
-    <z-footer v-if="!~$route.path.indexOf('/admin/')"></z-footer>
+    <z-header></z-header>
+    <main>
+      <router-view></router-view>
+    </main>
+    <z-footer></z-footer>
   </div>
 </template>
 
 <script>
-import zFooter from '@/components/footer'
-
 export default {
-  name: 'app',
-
-  components: {
-    zFooter
-  }
+  name: 'app'
 };
 </script>
 
@@ -26,7 +23,6 @@ export default {
 body {
   font-size: 16px;
   font-family: Helvetica Neue,Helvetica,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Noto Sans CJK SC,WenQuanYi Micro Hei,Arial,sans-serif;
-  line-height: 1;
 }
 
 input, textarea {

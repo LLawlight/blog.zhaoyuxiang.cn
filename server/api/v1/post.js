@@ -51,6 +51,53 @@ var index = function (req, res, next) {
 
 exports.index = index;
 
+var show = function (req, res, next) {
+  var postId  = String(req.params.id);
+
+  var ep      = new EventProxy();
+
+  if (!validator.isMongoId(postId)) {
+    res.status(400);
+    return res.send({success: false, error_msg: '不是有效的话题id'});
+  }
+
+  ep.fail(next);
+
+  Post.getFullPost(postId, ep.done(function (msg, post, author, replies) {
+    if (!post) {
+      res.status(404);
+      return res.send({success: false, error_msg: '话题不存在'});
+    }
+    post = _.pick(post, ['id', 'author_id', 'tab', 'content', 'title', 'last_reply_at',
+      'good', 'top', 'reply_count', 'visit_count', 'create_at', 'author']);
+
+    post.author = _.pick(author, ['loginname', 'avatar_url']);
+
+    // post.replies = replies.map(function (reply) {
+    //   reply.author = _.pick(reply.author, ['loginname', 'avatar_url']);
+    //   reply =  _.pick(reply, ['id', 'author', 'content', 'ups', 'create_at', 'reply_id']);
+    //   reply.reply_id = reply.reply_id || null;
+    //
+    //   if (reply.ups && req.user && reply.ups.indexOf(req.user.id) != -1) {
+    //     reply.is_uped = true;
+    //   } else {
+    //     reply.is_uped = false;
+    //   }
+    //
+    //   return reply;
+    // });
+
+    ep.emit('full_post', post)
+  }));
+
+  ep.all('full_post', function (full_post) {
+    res.send({success: true, data: full_post});
+  })
+
+};
+
+exports.show = show;
+
 exports.put = function (req, res, next) {
   var title   = validator.trim(req.body.title || '');
   var theme   = validator.trim(req.body.theme || '');

@@ -1,25 +1,24 @@
 <template lang="html">
-  <div class="page-index">
-    <div class="posts">
-      <post-card
-        v-for="post in posts"
-        :key="post.id"
-        :post-info="post"
-      ></post-card>
-    </div>
+  <div class="posts">
+    <post-card
+      v-for="post in posts"
+      :key="post.id"
+      :post-info="post"
+    ></post-card>
   </div>
 </template>
 
 <script>
+import zHeader from '@/components/header'
 import postCard from '@/components/postCard'
+import zFooter from '@/components/footer'
 
 export default {
   name: 'page-index',
 
   data() {
     return {
-      posts: [],
-      backgroundImage: 'https://www.dujin.org/sys/bing/1920.php'
+      posts: []
     }
   },
 
@@ -47,9 +46,7 @@ export default {
 </script>
 
 <style lang='less'>
-.page-index {
-  height: 100%;
-  background-position: center;
-  background-attachment: fixed;
+.posts {
+  padding: 16px;
 }
 </style>
