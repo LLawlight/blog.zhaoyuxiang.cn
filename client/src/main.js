@@ -9,11 +9,13 @@ import store from './store'
 import App from './App'
 import zHeader from '@/components/header.vue'
 import zFooter from '@/components/footer.vue'
+import loading from '@/components/loading.vue'
 
 if (process.env.NODE_ENV === "production") {
   window.__apiBase = 'http://zhaoyuxiang.cn:3000/api/'
 } else {
-  window.__apiBase = 'http://localhost:3000/api/'
+  // window.__apiBase = 'http://localhost:3000/api/'
+  window.__apiBase = 'http://zhaoyuxiang.cn:3000/api/'
 }
 
 window.__config = config
@@ -21,6 +23,7 @@ window.__config = config
 Vue.use(VueResource)
 Vue.component(zHeader.name, zHeader)
 Vue.component(zFooter.name, zFooter)
+Vue.component(loading.name, loading)
 
 Vue.http.options.emulateJSON = true
 Vue.http.options.credentials = true

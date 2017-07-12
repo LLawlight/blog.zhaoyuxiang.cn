@@ -1,5 +1,6 @@
 <template lang="html">
   <div class="posts">
+    <loading v-if="isLoading"></loading>
     <post-card
       v-for="post in posts"
       :key="post.id"
@@ -18,7 +19,8 @@ export default {
 
   data() {
     return {
-      posts: []
+      posts: [],
+      isLoading: false
     }
   },
 
@@ -36,8 +38,10 @@ export default {
     },
 
     getPosts() {
+      this.isLoading = true
       this.$http.get(`${__apiBase}v1/posts`)
       .then((res) => {
+        this.isLoading = false
         this.posts = res.data.data
       })
     }

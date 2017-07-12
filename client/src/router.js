@@ -4,7 +4,6 @@ import VueRouter from 'vue-router'
 import home from '@/pages/home'
 import friends from '@/pages/friends'
 import post from '@/pages/post'
-import signin from '@/pages/signin'
 import github from '@/pages/github'
 
 // 管理后台
@@ -38,11 +37,6 @@ export default new VueRouter({
     {
       path: '/post/:id',
       component: post
-    },
-
-    {
-      path: '/signin',
-      component: signin
     },
 
     {

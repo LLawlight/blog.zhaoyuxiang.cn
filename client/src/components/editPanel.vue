@@ -84,8 +84,6 @@ export default {
 </script>
 
 <style lang="less">
-@import '../../node_modules/highlight.js/styles/github.css';
-
 .edit-panel {
   height: 100%;
   overflow: hidden;

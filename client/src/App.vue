@@ -15,6 +15,7 @@ export default {
 </script>
 
 <style lang='less'>
+@import '../node_modules/highlight.js/styles/github.css';
 * {
   margin: 0;
   padding: 0;

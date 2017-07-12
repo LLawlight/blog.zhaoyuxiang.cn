@@ -1,15 +1,17 @@
 <template lang="html">
   <section class="post-card">
-    <div class="title">{{postInfo.title}}</div>
+    <div class="title" @click="readPost(postInfo.id)">{{postInfo.title}}</div>
+    <div class="summary" @click="readPost(postInfo.id)">
+      {{postInfo.summary}}...<span>查看全文></span>
+    </div>
     <div class="info">
       <span class="create-at">发布于 <em>{{postInfo.create_at_ago}}</em></span>
-      <span class="visit-count"><i class="fa fa-eye" aria-hidden="true"></i><em>{{postInfo.visit_count}}</em></span>
-      <span class="reply-count"><i class="fa fa-comments-o" aria-hidden="true"></i><em>{{postInfo.reply_count}}</em></span>
+      <div class="count-info">
+        <span class="visit-count"><em>{{postInfo.visit_count}}</em> 浏览</span>
+        <span class="bull">·</span>
+        <span class="reply-count"><em>{{postInfo.reply_count}}</em> 评论</span>
+      </div>
     </div>
-    <div class="summary">
-      {{postInfo.summary}}
-    </div>
-    <z-button type="primary" @click.native="readPost(postInfo.id)">阅读更多</z-button>
   </section>
 </template>
 
@@ -38,13 +40,14 @@ export default {
   padding: 16px;
 
   .title {
-    font-size: 24px;
+    font-size: 20px;
     font-weight: bold;
+    cursor: pointer;
   }
 
   .info {
     font-size: 14px;
-    margin: 10px 0;
+    color: gray;
 
     i {
       margin-right: 4px;
@@ -59,11 +62,26 @@ export default {
         font-weight: 600;
       }
     }
+
+    .count-info {
+      float: right;
+
+      .bull {
+        margin: 0 4px;
+      }
+    }
   }
 
   .summary {
-    margin: 10px 0;
+    padding: 10px 0;
     word-break: break-all;
+    color: #666;
+    line-height: 1.7;
+    cursor: pointer;
+
+    span {
+      color: #b3b3b3;
+    }
   }
 }
 </style>

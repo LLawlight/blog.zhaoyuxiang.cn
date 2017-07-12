@@ -235,12 +235,13 @@ header .avatar img {
   padding: 16px;
 }
 .post-card .title {
-  font-size: 24px;
+  font-size: 20px;
   font-weight: bold;
+  cursor: pointer;
 }
 .post-card .info {
   font-size: 14px;
-  margin: 10px 0;
+  color: gray;
 }
 .post-card .info i {
   margin-right: 4px;
@@ -251,9 +252,21 @@ header .avatar img {
 .post-card .info .create-at em {
   font-weight: 600;
 }
+.post-card .info .count-info {
+  float: right;
+}
+.post-card .info .count-info .bull {
+  margin: 0 4px;
+}
 .post-card .summary {
-  margin: 10px 0;
+  padding: 10px 0;
   word-break: break-all;
+  color: #666;
+  line-height: 1.7;
+  cursor: pointer;
+}
+.post-card .summary span {
+  color: #b3b3b3;
 }
 
 footer {
@@ -373,84 +386,33 @@ footer p a {
 }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.page-signin {
-  height: 100vh;
-  background: -webkit-gradient(linear, right top, left bottom, from(#a9e2ff), to(#78a7ff));
-  background: -webkit-linear-gradient(top right, #a9e2ff, #78a7ff);
-  background: linear-gradient(to bottom left, #a9e2ff, #78a7ff);
+.page-post {
+  padding: 16px 0;
+  max-width: 1020px;
+  margin: auto;
 }
-.page-signin i {
-  position: fixed;
-  left: 50%;
-  top: 35%;
-  -webkit-transform: translate(-50%, -50%);
-      -ms-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  color: white;
-  font-size: 300px;
+.page-post h1 {
+  margin: 24px 0;
 }
-.page-signin a {
-  position: fixed;
-  left: 50%;
-  top: 65%;
-  -webkit-transform: translate(-50%, -50%);
-      -ms-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  border: 1px solid white;
-  padding: 10px 50px;
-  -webkit-border-radius: 5px;
-          border-radius: 5px;
-  color: white;
+.page-post .post-content {
+  margin-top: 30px;
 }
-
-.page-auth-github {
-  text-align: center;
-  padding: 80px 0;
+.page-post .post-content h2 {
+  margin: 20px 0;
 }
-.page-auth-github .tip {
-  color: gray;
-  font-size: 14px;
-  margin-top: 10px;
+.page-post .post-content p {
+  margin: 20px 0;
+}
+.page-post .post-content img {
+  max-width: 100%;
+}
+.page-post .post-content ul,
+.page-post .post-content ol {
+  padding-left: 16px;
+  margin: 20px 0;
+}
+.page-post .post-content hr {
+  margin: 8px 0;
 }
 
 .page-admin {
@@ -483,105 +445,6 @@ footer p a {
 
 .page-admin-create {
   height: 100%;
-}
-/*
-
-github.com style (c) Vasily Polovnyov <vast@whiteants.net>
-
-*/
-
-.hljs {
-  display: block;
-  overflow-x: auto;
-  padding: 0.5em;
-  color: #333;
-  background: #f8f8f8;
-}
-
-.hljs-comment,
-.hljs-quote {
-  color: #998;
-  font-style: italic;
-}
-
-.hljs-keyword,
-.hljs-selector-tag,
-.hljs-subst {
-  color: #333;
-  font-weight: bold;
-}
-
-.hljs-number,
-.hljs-literal,
-.hljs-variable,
-.hljs-template-variable,
-.hljs-tag .hljs-attr {
-  color: #008080;
-}
-
-.hljs-string,
-.hljs-doctag {
-  color: #d14;
-}
-
-.hljs-title,
-.hljs-section,
-.hljs-selector-id {
-  color: #900;
-  font-weight: bold;
-}
-
-.hljs-subst {
-  font-weight: normal;
-}
-
-.hljs-type,
-.hljs-class .hljs-title {
-  color: #458;
-  font-weight: bold;
-}
-
-.hljs-tag,
-.hljs-name,
-.hljs-attribute {
-  color: #000080;
-  font-weight: normal;
-}
-
-.hljs-regexp,
-.hljs-link {
-  color: #009926;
-}
-
-.hljs-symbol,
-.hljs-bullet {
-  color: #990073;
-}
-
-.hljs-built_in,
-.hljs-builtin-name {
-  color: #0086b3;
-}
-
-.hljs-meta {
-  color: #999;
-  font-weight: bold;
-}
-
-.hljs-deletion {
-  background: #fdd;
-}
-
-.hljs-addition {
-  background: #dfd;
-}
-
-.hljs-emphasis {
-  font-style: italic;
-}
-
-.hljs-strong {
-  font-weight: bold;
 }
 
 .edit-panel {
@@ -698,6 +561,105 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 .page-admin-edit {
   height: 100%;
 }
+/*
+
+github.com style (c) Vasily Polovnyov <vast@whiteants.net>
+
+*/
+
+.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  color: #333;
+  background: #f8f8f8;
+}
+
+.hljs-comment,
+.hljs-quote {
+  color: #998;
+  font-style: italic;
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-subst {
+  color: #333;
+  font-weight: bold;
+}
+
+.hljs-number,
+.hljs-literal,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag .hljs-attr {
+  color: #008080;
+}
+
+.hljs-string,
+.hljs-doctag {
+  color: #d14;
+}
+
+.hljs-title,
+.hljs-section,
+.hljs-selector-id {
+  color: #900;
+  font-weight: bold;
+}
+
+.hljs-subst {
+  font-weight: normal;
+}
+
+.hljs-type,
+.hljs-class .hljs-title {
+  color: #458;
+  font-weight: bold;
+}
+
+.hljs-tag,
+.hljs-name,
+.hljs-attribute {
+  color: #000080;
+  font-weight: normal;
+}
+
+.hljs-regexp,
+.hljs-link {
+  color: #009926;
+}
+
+.hljs-symbol,
+.hljs-bullet {
+  color: #990073;
+}
+
+.hljs-built_in,
+.hljs-builtin-name {
+  color: #0086b3;
+}
+
+.hljs-meta {
+  color: #999;
+  font-weight: bold;
+}
+
+.hljs-deletion {
+  background: #fdd;
+}
+
+.hljs-addition {
+  background: #dfd;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}
 
 * {
   margin: 0;
@@ -721,4 +683,14 @@ a {
   color: #333;
 }
 
-/*# sourceMappingURL=main.730352b03e5c92abc553cc59c1caa80b.css.map*/
+.blog-loading {
+  text-align: center;
+  padding: 80px 0;
+}
+.blog-loading .tip {
+  color: gray;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+/*# sourceMappingURL=main.1e5afabe05d3e29db8239716b8eb28aa.css.map*/
