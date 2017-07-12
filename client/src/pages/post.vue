@@ -43,7 +43,7 @@ export default {
       this.$http.get(`${__apiBase}v1/post/${this.id}`)
       .then((res) => {
         this.isLoading = false
-        
+
         const data = res.data.data
 
         this.post = {
@@ -58,7 +58,7 @@ export default {
 
 <style lang="less">
 .page-post {
-  padding: 16px 0;
+  padding: 16px;
   max-width: 1020px;
   margin: auto;
 
