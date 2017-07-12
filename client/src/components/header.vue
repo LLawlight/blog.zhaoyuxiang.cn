@@ -9,7 +9,7 @@
 
       <div class="header">
         <div class="avatar"><img src="../assets/avatar.jpg" /></div>
-        <div class="name">天道总司</div>
+        <div class="name">天道寺</div>
       </div>
 
       <z-button v-if="!$store.state.user" class="signin-button" @click="goSignin">登录</z-button>

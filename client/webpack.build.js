@@ -6,6 +6,12 @@ var baseWebpackConfig = require('./webpack.config.js')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 
+require('shelljs/global')
+var assetsPath = path.join(path.resolve(__dirname, './dist'), 'static')
+rm('-rf', assetsPath)
+mkdir('-p', assetsPath)
+cp('-R', 'static/*', assetsPath)
+
 var webpackConfig = merge(baseWebpackConfig(), {
   module: {
     loaders: utils.styleLoaders({ sourceMap: true, extract: true })
