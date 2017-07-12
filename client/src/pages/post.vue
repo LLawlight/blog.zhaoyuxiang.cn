@@ -1,13 +1,9 @@
 <template lang="html">
   <div class="page-post">
-    <z-header></z-header>
-    <main>
-      <h1>{{post.title}}</h1>
-      <div class="post-content">
-        {{post.content}}
-      </div>
-    </main>
-    <z-footer></z-footer>
+    <h1>{{post.title}}</h1>
+    <div class="post-content">
+      {{post.content}}
+    </div>
   </div>
 </template>
 

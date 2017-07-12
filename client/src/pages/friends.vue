@@ -108,7 +108,7 @@ export default {
 <style lang="less">
 .friends {
   overflow: hidden;
-  max-width: 666px;
+  max-width: 1080px;
   margin: 0 auto;
 }
 </style>

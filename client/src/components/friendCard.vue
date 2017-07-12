@@ -7,7 +7,7 @@
       <div class="name">{{friendInfo.name}}</div>
       <div class="intro">{{friendInfo.intro}}</div>
     </div>
-    <z-button><a :href="friendInfo.link" target="_blank">探索</a></z-button>
+    <a :href="friendInfo.link" target="_blank">探索</a>
   </div>
 </template>
 
@@ -27,7 +27,7 @@ export default {
   border: 1px solid #efd7ef;
   border-radius: 5px;
   box-sizing: border-box;
-  width: e("calc(33.33% - 16px * 2)");
+  width: e("calc(25% - 16px * 2)");
   margin: 16px;
   float: left;
   text-align: center;
@@ -40,6 +40,7 @@ export default {
     width: 80px;
     height: 80px;
     border-radius: 80px;
+    border: 1px solid rgba(0, 0, 0, .08);
     overflow: hidden;
     margin: auto;
 
@@ -60,18 +61,23 @@ export default {
     height: 38px;
   }
 
-  .z-btn {
-    display: block;
-    width: 100%;
-    border-right: none;
-    border-bottom: none;
-    border-left: none;
+  a {
+    height: 35px;
+    line-height: 35px;
+    font-size: 14px;
     border-top: 1px solid #efd7ef;
+    display: block;
 
-    a {
-      text-decoration: none;
-      color: #333;
+    &:hover {
+      background-color: #e6e6e6;
     }
+  }
+}
+
+@media screen and (max-width: 1020px) {
+  .friend-card {
+    width: e("calc(33.33% - 16px * 2)");
+    margin: 16px;
   }
 }
 

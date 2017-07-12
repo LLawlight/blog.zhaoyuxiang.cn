@@ -33,4 +33,9 @@ input, textarea {
 i, em {
   font-style: normal;
 }
+
+a {
+  text-decoration: none;
+  color: #333;
+}
 </style>

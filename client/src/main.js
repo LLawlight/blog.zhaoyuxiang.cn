@@ -12,9 +12,11 @@ import zFooter from '@/components/footer.vue'
 
 if (process.env.NODE_ENV === "production") {
   window.__apiBase = 'http://zhaoyuxiang.cn:3000/api/'
+  config.GITHUB_OAUTH.callbackURL = 'http://zhaoyuxiang.cn/auth/github'
 } else {
   window.__apiBase = 'http://localhost:3000/api/'
 }
+
 window.__config = config
 
 Vue.use(VueResource)

@@ -118,6 +118,7 @@ header {
     .hello-tip {
       .admin-entry {
         color: white;
+        text-decoration: underline;
       }
     }
   }

@@ -31,15 +31,7 @@ module.exports = (env) => {
       rules: [
         {
           test: /\.vue$/,
-          loader: 'vue-loader',
-          options: {
-            loaders: {
-              css: ExtractTextPlugin.extract({
-                use: ['css-loader'],
-                fallback: 'vue-style-loader'
-              })
-            }
-          }
+          loader: 'vue-loader'
         },
         {
           test: /\.js$/,
@@ -69,7 +61,6 @@ module.exports = (env) => {
         name: 'manifest', //But since there are no more common modules between them we end up with just the runtime code included in the manifest file
         chunks: ['vendor']
       }),
-      new ExtractTextPlugin('styles.css'),
       new HtmlWebpackPlugin({
         filename: 'index.html',
         template: 'index.html',

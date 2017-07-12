@@ -27,6 +27,10 @@ const config = {
   }
 };
 
-config.GITHUB_OAUTH_ADDRESS = `http://github.com/login/oauth/authorize?response_type=code&client_id=${config.GITHUB_OAUTH.clientID}&redirect_uri=${config.GITHUB_OAUTH.callbackURL}`
+config.GITHUB_OAUTH_ADDRESS =
+'http://github.com/login/oauth/authorize?response_type=code&client_id=' +
+config.GITHUB_OAUTH.clientID +
+'&redirect_uri=' +
+config.GITHUB_OAUTH.callbackURL;
 
 module.exports = config;

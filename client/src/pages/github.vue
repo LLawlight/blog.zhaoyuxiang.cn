@@ -1,6 +1,9 @@
 <template lang="html">
   <div class="page-auth-github">
-    授权登录中，请稍候。。。
+    <img src="../assets/loading.gif" alt="加载中">
+    <div class="tip">
+      授权登录中，请稍候。。。
+    </div>
   </div>
 </template>
 
@@ -29,3 +32,16 @@ export default {
   }
 };
 </script>
+
+<style lang="less">
+.page-auth-github {
+  text-align: center;
+  padding: 80px 0;
+
+  .tip {
+    color: gray;
+    font-size: 14px;
+    margin-top: 10px;
+  }
+}
+</style>
