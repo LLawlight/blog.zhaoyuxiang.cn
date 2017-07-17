@@ -1,16 +1,17 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
-import home from '@/pages/home'
-import friends from '@/pages/friends'
-import post from '@/pages/post'
-import github from '@/pages/github'
+const index = resolve => require(['pages/index'], resolve)
+const home = resolve => require(['pages/home'], resolve)
+const friends = resolve => require(['pages/friends'], resolve)
+const post = resolve => require(['pages/post'], resolve)
+const github = resolve => require(['pages/github'], resolve)
 
 // 管理后台
-import admin from '@/pages/admin/index'
-import create from '@/pages/admin/create'
-import list from '@/pages/admin/list'
-import edit from '@/pages/admin/edit'
+const admin = resolve => require(['admin/index'], resolve)
+const create = resolve => require(['admin/create'], resolve)
+const list = resolve => require(['admin/list'], resolve)
+const edit = resolve => require(['admin/edit'], resolve)
 
 Vue.use(VueRouter)
 
@@ -20,28 +21,26 @@ export default new VueRouter({
   routes: [
     {
       path: '/',
-      redirect: '/home'
-    },
+      component: index,
+      children: [
+        {
+          path: '',
+          component: home
+        },
+        {
+          path: '/friends',
+          component: friends
+        },
+        {
+          path: '/post/:id',
+          component: post
+        },
 
-    {
-      path: '/home',
-      component: home
-    },
-
-    {
-      path: '/friends',
-      component: friends
-    },
-
-
-    {
-      path: '/post/:id',
-      component: post
-    },
-
-    {
-      path: '/auth/github',
-      component: github
+        {
+          path: '/auth/github',
+          component: github
+        },
+      ]
     },
 
     {

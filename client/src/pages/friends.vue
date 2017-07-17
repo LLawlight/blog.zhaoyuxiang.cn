@@ -1,7 +1,7 @@
 <template lang="html">
-  <div class="friends">
+  <transition-group name="friends" tag="div" class="friends">
     <friend-card v-for="(friendInfo, index) in friends" :key="index" :friend-info="friendInfo"></friend-card>
-  </div>
+  </transition-group>
 </template>
 
 <script>
@@ -10,9 +10,9 @@ import friendCard from '@/components/friendCard'
 export default {
   data() {
     return {
-      friends: [
+      lists: [
         {
-          avatar: '//i0.hdslb.com/bfs/drawyoo/b86db5a7677651af4e0a9118b9be0b62b6f81405.jpg',
+          avatar: '//wx1.sinaimg.cn/large/a3fb75bfgy1fhjo0qoykvj20e80e8wfs.jpg',
           name: '阿瓜',
           intro: '阿瓜阿瓜顶瓜瓜',
           link: '//digua.me'
@@ -95,12 +95,22 @@ export default {
           intro: '',
           link: '//havee.me/'
         }
-      ]
+      ],
+
+      friends: []
     }
   },
 
   components: {
     friendCard
+  },
+
+  mounted() {
+    for (let i = 0; i < this.lists.length; i++) {
+      setTimeout(() => {
+        this.friends.push(this.lists[i])
+      }, 3000 / this.lists.length * i)
+    }
   }
 };
 </script>
@@ -110,5 +120,13 @@ export default {
   overflow: hidden;
   max-width: 1080px;
   margin: 0 auto;
+}
+
+.friends-enter-active, .friends-leave-active {
+  transition: all 1s;
+}
+.friends-enter, .friends-leave-to {
+  opacity: 0;
+  transform: translateX(30px);
 }
 </style>

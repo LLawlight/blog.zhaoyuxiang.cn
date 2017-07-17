@@ -15,7 +15,7 @@ import postCard from '@/components/postCard'
 import zFooter from '@/components/footer'
 
 export default {
-  name: 'page-index',
+  name: 'page-home',
 
   data() {
     return {
@@ -51,6 +51,6 @@ export default {
 
 <style lang='less'>
 .posts {
-  padding: 16px;
+  padding: 32px 16px;
 }
 </style>

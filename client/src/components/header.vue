@@ -3,7 +3,7 @@
     <div class="header-wrapper">
       <nav>
         <ul>
-          <li v-for="item in navList"><router-link :to="item.to">{{item.name}}</router-link></li>
+          <li v-for="item in navList"><router-link :to="item.to" exact>{{item.name}}</router-link></li>
         </ul>
       </nav>
 
@@ -26,7 +26,7 @@ export default {
     return {
       navList: [
         {
-          to: '/home',
+          to: '/',
           name: '首页'
         },
         {
@@ -38,10 +38,6 @@ export default {
   },
 
   methods: {
-    readPost(id) {
-      this.$router.push(`/post/${id}`)
-    },
-
     goSignin() {
       window.location.href = __config.GITHUB_OAUTH_ADDRESS
     }
@@ -72,6 +68,7 @@ header {
     nav {
       float: left;
       line-height: 19px;
+      padding: 8px 0;
 
       li {
         list-style: none;

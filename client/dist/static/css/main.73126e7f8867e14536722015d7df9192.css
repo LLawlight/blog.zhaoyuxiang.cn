@@ -143,10 +143,6 @@
 }
 }
 
-.posts {
-  padding: 16px;
-}
-
 header {
   background-image: url("https://bing.ioliu.cn/v1");
   background-color: white;
@@ -169,6 +165,7 @@ header .header-wrapper {
 header .header-wrapper nav {
   float: left;
   line-height: 19px;
+  padding: 8px 0;
 }
 header .header-wrapper nav li {
   list-style: none;
@@ -226,49 +223,6 @@ header .avatar img {
   object-fit: cover;
 }
 
-.post-card {
-  border: 1px solid #e5e5e5;
-  -webkit-border-radius: 5px;
-          border-radius: 5px;
-  margin: 0 auto 16px;
-  max-width: 800px;
-  padding: 16px;
-}
-.post-card .title {
-  font-size: 20px;
-  font-weight: bold;
-  cursor: pointer;
-}
-.post-card .info {
-  font-size: 14px;
-  color: gray;
-}
-.post-card .info i {
-  margin-right: 4px;
-}
-.post-card .info em {
-  color: #7FC9FE;
-}
-.post-card .info .create-at em {
-  font-weight: 600;
-}
-.post-card .info .count-info {
-  float: right;
-}
-.post-card .info .count-info .bull {
-  margin: 0 4px;
-}
-.post-card .summary {
-  padding: 10px 0;
-  word-break: break-all;
-  color: #666;
-  line-height: 1.7;
-  cursor: pointer;
-}
-.post-card .summary span {
-  color: #b3b3b3;
-}
-
 footer {
   width: 100%;
   padding: 16px 0;
@@ -316,250 +270,6 @@ footer p a {
     -webkit-transform: scale(1);
             transform: scale(1);
 }
-}
-
-.friends {
-  overflow: hidden;
-  max-width: 1080px;
-  margin: 0 auto;
-}
-
-.friend-card {
-  border: 1px solid #efd7ef;
-  -webkit-border-radius: 5px;
-          border-radius: 5px;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  width: -webkit-calc(25% - 16px * 2);
-  width: calc(25% - 16px * 2);
-  margin: 16px;
-  float: left;
-  text-align: center;
-}
-.friend-card .basic-info {
-  padding: 16px;
-}
-.friend-card .avatar-container {
-  width: 80px;
-  height: 80px;
-  -webkit-border-radius: 80px;
-          border-radius: 80px;
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  overflow: hidden;
-  margin: auto;
-}
-.friend-card .avatar-container img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.friend-card .name {
-  margin: 16px 0;
-}
-.friend-card .intro {
-  color: gray;
-  font-size: 14px;
-  height: 38px;
-}
-.friend-card a {
-  height: 35px;
-  line-height: 35px;
-  font-size: 14px;
-  border-top: 1px solid #efd7ef;
-  display: block;
-}
-.friend-card a:hover {
-  background-color: #e6e6e6;
-}
-@media screen and (max-width: 1020px) {
-.friend-card {
-    width: -webkit-calc(33.33% - 16px * 2);
-    width: calc(33.33% - 16px * 2);
-    margin: 16px;
-}
-}
-@media screen and (max-width: 660px) {
-.friend-card {
-    width: -webkit-calc(50% - 16px * 2);
-    width: calc(50% - 16px * 2);
-    margin: 16px;
-}
-}
-
-.page-post {
-  padding: 16px;
-  max-width: 1020px;
-  margin: auto;
-}
-.page-post h1 {
-  margin: 24px 0;
-}
-.page-post .post-content {
-  margin-top: 30px;
-}
-.page-post .post-content h2 {
-  margin: 20px 0;
-}
-.page-post .post-content p {
-  margin: 20px 0;
-}
-.page-post .post-content img {
-  max-width: 100%;
-}
-.page-post .post-content ul,
-.page-post .post-content ol {
-  padding-left: 16px;
-  margin: 20px 0;
-}
-.page-post .post-content hr {
-  margin: 8px 0;
-}
-
-.page-admin {
-  padding-left: 100px;
-  height: 100%;
-}
-.page-admin .siderbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100%;
-  background-color: blue;
-  width: 100px;
-}
-.page-admin .siderbar a {
-  color: white;
-  text-decoration: none;
-  display: block;
-  text-align: center;
-  padding: 10px 0;
-}
-.page-admin .siderbar a:hover {
-  background-color: white;
-  color: black;
-}
-.page-admin .siderbar a.router-link-active {
-  background-color: white;
-  color: black;
-}
-
-.page-admin-create {
-  height: 100%;
-}
-
-.edit-panel {
-  height: 100%;
-  overflow: hidden;
-}
-.edit-panel .write,
-.edit-panel .preview {
-  float: left;
-  height: 100%;
-  width: 50%;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  padding: 20px;
-}
-.edit-panel .title {
-  margin-bottom: 10px;
-  font-size: 32px;
-  padding-bottom: 10px;
-}
-.edit-panel .write {
-  position: relative;
-}
-.edit-panel .write .title {
-  display: block;
-  width: 100%;
-  border-top: none;
-  border-right: none;
-  border-left: none;
-  font-size: 32px;
-}
-.edit-panel .write .title:focus {
-  outline: none;
-}
-.edit-panel .write textarea {
-  width: 100%;
-  height: -webkit-calc(100% - 80px);
-  height: calc(100% - 80px);
-  resize: none;
-  padding: 0;
-  border: none;
-  font-size: 16px;
-  line-height: 1.5;
-}
-.edit-panel .write textarea:focus {
-  outline: none;
-}
-.edit-panel .write .action {
-  width: 100%;
-}
-.edit-panel .write .action a {
-  float: right;
-}
-.edit-panel .preview {
-  border-left: 1px solid black;
-}
-.edit-panel .preview .content {
-  height: -webkit-calc(100% - 70px);
-  height: calc(100% - 70px);
-}
-.edit-panel .preview .content ul,
-.edit-panel .preview .content ol {
-  padding-left: 20px;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.page-admin-edit {
-  height: 100%;
 }
 /*
 
@@ -693,4 +403,4 @@ a {
   margin-top: 10px;
 }
 
-/*# sourceMappingURL=main.97d45d5e286c810afbcfbdce2a2232e2.css.map*/
+/*# sourceMappingURL=main.73126e7f8867e14536722015d7df9192.css.map*/

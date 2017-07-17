@@ -26,7 +26,22 @@ var PostSchema = new Schema({
 });
 
 PostSchema.virtual('summary').get(function() {
-  var summary = removeMd(this.content).slice(0, 88);
+  var content = removeMd(this.content);
+  let length = 0;
+  let summary = '';
+  for (var i = 0; i < content.length; i++) {
+    summary = summary + content[i]
+    if (/[^x00-xff]/.test(content[i])) {
+      length = length + 2
+    }
+    else {
+      length = length + 1
+    }
+
+    if (length >= 176) {
+      break
+    }
+  }
 
   return summary;
 });

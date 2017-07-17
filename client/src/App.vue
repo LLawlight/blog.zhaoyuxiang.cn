@@ -1,10 +1,6 @@
 <template lang="html">
   <div id="app">
-    <z-header></z-header>
-    <main>
-      <router-view></router-view>
-    </main>
-    <z-footer></z-footer>
+    <router-view></router-view>
   </div>
 </template>
 
