@@ -20,6 +20,8 @@ export default {
 body {
   font-size: 16px;
   font-family: Helvetica Neue,Helvetica,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Noto Sans CJK SC,WenQuanYi Micro Hei,Arial,sans-serif;
+  word-break: break-all;
+  line-height: 1.5;
 }
 
 input, textarea {

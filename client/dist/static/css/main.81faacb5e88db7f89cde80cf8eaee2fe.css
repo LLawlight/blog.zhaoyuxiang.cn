@@ -205,6 +205,10 @@ header .header-wrapper .signin-button {
           border-radius: 5px;
   min-width: 80px;
 }
+header .header-wrapper .hello-tip {
+  line-height: 19px;
+  padding: 8px 0;
+}
 header .header-wrapper .hello-tip .admin-entry {
   color: white;
   text-decoration: underline;
@@ -378,6 +382,8 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 body {
   font-size: 16px;
   font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Noto Sans CJK SC, WenQuanYi Micro Hei, Arial, sans-serif;
+  word-break: break-all;
+  line-height: 1.5;
 }
 input,
 textarea {
@@ -403,4 +409,4 @@ a {
   margin-top: 10px;
 }
 
-/*# sourceMappingURL=main.73126e7f8867e14536722015d7df9192.css.map*/
+/*# sourceMappingURL=main.81faacb5e88db7f89cde80cf8eaee2fe.css.map*/

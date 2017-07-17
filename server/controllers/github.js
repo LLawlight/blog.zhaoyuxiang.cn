@@ -13,6 +13,9 @@ exports.callback = function (req, res, next) {
     avatar: profile._json.avatar_url,
     loginname: profile.username
   }
+  if (config.admins.hasOwnProperty(userInfo.loginname)) {
+    userInfo.is_admin = true;
+  }
   User.findOne({githubId: profile.id}, function (err, user) {
     if (err) {
       return next(err);

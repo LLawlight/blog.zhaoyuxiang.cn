@@ -113,6 +113,9 @@ header {
     }
 
     .hello-tip {
+      line-height: 19px;
+      padding: 8px 0;
+
       .admin-entry {
         color: white;
         text-decoration: underline;

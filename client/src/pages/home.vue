@@ -1,11 +1,13 @@
 <template lang="html">
   <div class="posts">
     <loading v-if="isLoading"></loading>
-    <post-card
-      v-for="post in posts"
-      :key="post.id"
-      :post-info="post"
-    ></post-card>
+    <transition-group name="post" tag="div">
+      <post-card
+        v-for="post in posts"
+        :key="post.id"
+        :post-info="post"
+      ></post-card>
+    </transition-group>
   </div>
 </template>
 
@@ -42,7 +44,13 @@ export default {
       this.$http.get(`${__apiBase}v1/posts`)
       .then((res) => {
         this.isLoading = false
-        this.posts = res.data.data
+
+        const data = res.data.data
+        for (let i = 0; i < data.length; i++) {
+          setTimeout(() => {
+            this.posts.push(data[i])
+          }, 3000 / data.length * i)
+        }
       })
     }
   }
@@ -52,5 +60,13 @@ export default {
 <style lang='less'>
 .posts {
   padding: 32px 16px;
+}
+
+.post-enter-active, .post-leave-active {
+  transition: all 1s;
+}
+.post-enter, .post-leave-to {
+  opacity: 0;
+  transform: translateY(30px);
 }
 </style>

@@ -7,22 +7,6 @@
 </template>
 
 <script>
-import MarkdownIt from 'markdown-it'
-import hljs from 'highlight.js';
-const md = new MarkdownIt({
-  highlight: function (str, lang) {
-    if (lang && hljs.getLanguage(lang)) {
-      try {
-        return '<pre class="hljs"><code>' +
-               hljs.highlight(lang, str, true).value +
-               '</code></pre>';
-      } catch (__) {}
-    }
-
-    return '<pre class="hljs"><code>' + md.utils.escapeHtml(str) + '</code></pre>';
-  }
-})
-
 export default {
   data() {
     return {
@@ -48,7 +32,7 @@ export default {
 
         this.post = {
           title: data.title,
-          content: md.render(data.content)
+          content: __md.render(data.content)
         }
       })
     }
