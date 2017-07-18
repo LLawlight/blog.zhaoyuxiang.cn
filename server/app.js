@@ -45,7 +45,11 @@ passport.use(new GitHubStrategy(config.GITHUB_OAUTH, githubStrategyMiddleware));
 
 app.use(auth.authUser);
 
-var whitelist = ['http://localhost:8080', 'http://localhost:8000', 'http://zhaoyuxiang.cn', 'http://zhaoyuxiang.cn:3000', 'http://blog.zhaoyuxiang.cn']
+var whitelist = [
+  'http://localhost:8080',
+  'http://zhaoyuxiang.cn',
+  'https://zhaoyuxiang.cn'
+]
 var corsOptions = {
   origin: function (origin, callback) {
     if (whitelist.indexOf(origin) !== -1) {

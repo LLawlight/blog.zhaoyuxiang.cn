@@ -32,8 +32,8 @@ import loading from '@/components/loading.vue'
 if (process.env.NODE_ENV === "production") {
   window.__apiBase = 'https://api.zhaoyuxiang.cn/api/'
 } else {
-  // window.__apiBase = 'http://api.zhaoyuxiang.cn/api/'
-  window.__apiBase = 'http://localhost:3000/api/'
+  window.__apiBase = 'https://api.zhaoyuxiang.cn/api/'
+  // window.__apiBase = 'http://localhost:3000/api/'
 }
 
 window.__config = config
