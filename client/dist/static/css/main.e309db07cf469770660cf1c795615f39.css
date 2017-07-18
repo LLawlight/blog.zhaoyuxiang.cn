@@ -184,15 +184,29 @@ header .header-wrapper .header {
   position: absolute;
   left: 50%;
   top: 50%;
-  -webkit-transform: translate(-50%, -50%);
-      -ms-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -40%);
+      -ms-transform: translate(-50%, -40%);
+          transform: translate(-50%, -40%);
   text-align: center;
+  font-size: 24px;
 }
 header .header-wrapper .header .name {
   color: #fff;
-  margin-top: 10px;
-  font-size: 24px;
+  margin: 10px 0;
+}
+header .header-wrapper .header .social {
+  font-size: 32px;
+  list-style: none;
+  overflow: hidden;
+  display: inline-block;
+}
+header .header-wrapper .header .social li {
+  float: left;
+  margin: 0 8px;
+  line-height: 1;
+}
+header .header-wrapper .header .social .fa-twitter {
+  color: #1da1f2;
 }
 header .header-wrapper .signin-button,
 header .header-wrapper .hello-tip {
@@ -409,4 +423,4 @@ a {
   margin-top: 10px;
 }
 
-/*# sourceMappingURL=main.81faacb5e88db7f89cde80cf8eaee2fe.css.map*/
+/*# sourceMappingURL=main.e309db07cf469770660cf1c795615f39.css.map*/

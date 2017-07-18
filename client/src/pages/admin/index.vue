@@ -1,8 +1,8 @@
 <template lang="html">
   <div class="page-admin">
     <div class="siderbar">
-      <router-link to="/admin/list">列表</router-link>
-      <router-link to="/admin/create">写文章</router-link>
+      <router-link to="/admin" exact>列表</router-link>
+      <router-link to="/admin/create" exact>写文章</router-link>
     </div>
     <router-view></router-view>
   </div>
@@ -24,15 +24,19 @@ export default {
 
 <style lang="less">
 .page-admin {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   padding-left: 100px;
-  height: 100%;
 
   .siderbar {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     height: 100%;
-    background-color: blue;
+    background-color: #464847;
     width: 100px;
 
     a {

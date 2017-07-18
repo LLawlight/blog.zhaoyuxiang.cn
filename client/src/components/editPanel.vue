@@ -130,9 +130,37 @@ export default {
 
     .content {
       height: e("calc(100% - 70px)");
+      overflow-y: scroll;
+
+      h2 {
+        margin: 20px 0;
+      }
+
+      p {
+        margin: 20px 0;
+      }
+
+      img {
+        max-width: 100%;
+      }
 
       ul, ol {
-        padding-left: 20px;
+        padding-left: 16px;
+        margin: 20px 0;
+      }
+
+      hr {
+        margin: 8px 0;
+      }
+
+      blockquote {
+        border-left: 6px solid #b4b4b4;
+        background-color: #f8f8f8;
+        padding: 16px 0 16px 16px;
+
+        p {
+          margin: 0;
+        }
       }
     }
   }

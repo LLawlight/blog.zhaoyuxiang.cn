@@ -10,6 +10,9 @@
       <div class="header">
         <div class="avatar"><img src="../assets/avatar.jpg" /></div>
         <div class="name">天道寺</div>
+        <ul class="social">
+          <li><a href="https://twitter.com/zyx19936688" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+        </ul>
       </div>
 
       <z-button v-if="!$store.state.user" class="signin-button" @click="goSignin">登录</z-button>
@@ -39,6 +42,7 @@ export default {
 
   methods: {
     goSignin() {
+      alert(__config.GITHUB_OAUTH_ADDRESS)
       window.location.href = __config.GITHUB_OAUTH_ADDRESS
     }
   }
@@ -91,13 +95,30 @@ header {
       position: absolute;
       left: 50%;
       top: 50%;
-      transform: translate(-50%, -50%);
+      transform: translate(-50%, -40%);
       text-align: center;
+      font-size: 24px;
 
       .name {
         color: #fff;
-        margin-top: 10px;
-        font-size: 24px;
+        margin: 10px 0;
+      }
+
+      .social {
+        font-size: 32px;
+        list-style: none;
+        overflow: hidden;
+        display: inline-block;
+
+        li {
+          float: left;
+          margin: 0 8px;
+          line-height: 1;
+        }
+
+        .fa-twitter {
+          color: #1da1f2;
+        }
       }
     }
 

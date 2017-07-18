@@ -48,12 +48,12 @@ export default new VueRouter({
       component: admin,
       children: [
         {
-          path: 'create',
-          component: create
+          path: '',
+          component: list
         },
         {
-          path: 'list',
-          component: list
+          path: 'create',
+          component: create
         },
         {
           path: 'edit/:id',

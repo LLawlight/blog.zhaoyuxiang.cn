@@ -20,9 +20,10 @@
     "validator": "^7.0.0"
   },
   "scripts": {
-    "start": "node app.js"
+    "start": "cross-env NODE_ENV=development node app.js"
   },
   "dependencies": {
+    "cross-env": "^5.0.1",
     "moment": "^2.18.1",
     "remove-markdown": "^0.1.0"
   }

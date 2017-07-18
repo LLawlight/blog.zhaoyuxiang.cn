@@ -52,6 +52,11 @@ module.exports = (env) => {
     },
 
     plugins: [
+      new webpack.DefinePlugin({
+        'process.env': {
+          NODE_ENV: '"development"'
+        }
+      }),
       new webpack.optimize.CommonsChunkPlugin({
         name: 'vendor', // 指定公共 bundle 的名字。
         minChunks: function (module) {

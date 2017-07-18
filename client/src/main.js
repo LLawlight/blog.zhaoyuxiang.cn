@@ -3,7 +3,7 @@ import VueResource from 'vue-resource'
 import '@/components/common'
 
 import MarkdownIt from 'markdown-it'
-
+// import hljs from 'highlight.js'
 const md = new MarkdownIt({
   highlight: function (str, lang) {
     if (lang && hljs.getLanguage(lang)) {
@@ -30,7 +30,7 @@ import zFooter from '@/components/footer.vue'
 import loading from '@/components/loading.vue'
 
 if (process.env.NODE_ENV === "production") {
-  window.__apiBase = 'http://zhaoyuxiang.cn:3000/api/'
+  window.__apiBase = 'https://zhaoyuxiang.cn:3000/api/'
 } else {
   window.__apiBase = 'http://localhost:3000/api/'
 }

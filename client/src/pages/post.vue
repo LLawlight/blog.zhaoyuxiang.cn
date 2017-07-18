@@ -73,6 +73,16 @@ export default {
     hr {
       margin: 8px 0;
     }
+
+    blockquote {
+      border-left: 6px solid #b4b4b4;
+      background-color: #f8f8f8;
+      padding: 16px 0 16px 16px;
+
+      p {
+        margin: 0;
+      }
+    }
   }
 }
 </style>
