@@ -30,10 +30,9 @@ import zFooter from '@/components/footer.vue'
 import loading from '@/components/loading.vue'
 
 if (process.env.NODE_ENV === "production") {
-  window.__apiBase = 'https://api.zhaoyuxiang.cn/api/'
+  window.__apiBase = 'http://zhaoyuxiang:3000/api/'
 } else {
-  window.__apiBase = 'https://api.zhaoyuxiang.cn/api/'
-  // window.__apiBase = 'http://localhost:3000/api/'
+  window.__apiBase = 'http://localhost:3000/api/'
 }
 
 window.__config = config
