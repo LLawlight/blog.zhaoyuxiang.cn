@@ -31,7 +31,7 @@ else {
   // github 登陆的配置
   config.GITHUB_OAUTH = {
     clientID: '3b361ba05ed0e5a820cd',
-    clientSecret: '647e3d3233718af7ab2346bd27596aae8f912f82',
+    clientSecret: 'af63000a4cf4c0311c6df7d96e528586b5f455e1',
     callbackURL: 'https://zhaoyuxiang.cn/auth/github'
   }
 }
