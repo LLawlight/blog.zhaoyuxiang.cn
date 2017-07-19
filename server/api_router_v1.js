@@ -3,6 +3,7 @@ const passport         = require('passport');
 
 const config           = require('./config');
 const auth             = require('./middlewares/auth');
+const githubMiddleware = require('./middlewares/github');
 const configMiddleware = require('./middlewares/conf');
 const github           = require('./controllers/github');
 // const limit            = require('./middlewares/limit');
@@ -28,7 +29,7 @@ if (config.allow_sign_up) {
 // github oauth
 // router.get('/auth/github', configMiddleware.github, passport.authenticate('github'));
 router.get('/auth/github/callback',
-  passport.authenticate('github', { failureRedirect: '/signin' }),
+  githubMiddleware.getGithubUser,
   github.callback);
 
 // 用户类

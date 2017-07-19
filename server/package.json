@@ -23,6 +23,7 @@
     "start": "cross-env NODE_ENV=development node app.js"
   },
   "dependencies": {
+    "axios": "^0.16.2",
     "cross-env": "^5.0.1",
     "moment": "^2.18.1",
     "remove-markdown": "^0.1.0"
