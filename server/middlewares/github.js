@@ -30,9 +30,11 @@ exports.getGithubUser = function (req, res, next) {
     })
     .catch(function (error) {
       console.log(error);
+      res.send(error)
     });
   })
   .catch(function (error) {
     console.log(error);
+    res.send(error)
   });
 };
