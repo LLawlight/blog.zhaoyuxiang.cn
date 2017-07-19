@@ -42,7 +42,6 @@ export default {
 
   methods: {
     goSignin() {
-      alert(__config.GITHUB_OAUTH_ADDRESS)
       window.location.href = __config.GITHUB_OAUTH_ADDRESS
     }
   }

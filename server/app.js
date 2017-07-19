@@ -48,7 +48,8 @@ app.use(auth.authUser);
 var whitelist = [
   'http://localhost:8080',
   'http://zhaoyuxiang.cn',
-  'https://zhaoyuxiang.cn'
+  'https://zhaoyuxiang.cn',
+  'https://api.zhaoyuxiang.cn'
 ]
 var corsOptions = {
   origin: function (origin, callback) {
