@@ -1,11 +1,13 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
-const index = resolve => require(['pages/index'], resolve)
+// const index = resolve => require(['pages/index'], resolve)
+import index from 'pages/index'
 const home = resolve => require(['pages/home'], resolve)
 const friends = resolve => require(['pages/friends'], resolve)
 const post = resolve => require(['pages/post'], resolve)
-const github = resolve => require(['pages/github'], resolve)
+// const github = resolve => require(['pages/github'], resolve)
+import github from 'pages/github'
 
 // 管理后台
 const admin = resolve => require(['admin/index'], resolve)
