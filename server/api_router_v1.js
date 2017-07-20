@@ -28,7 +28,7 @@ if (config.allow_sign_up) {
 
 // github oauth
 // router.get('/auth/github', configMiddleware.github, passport.authenticate('github'));
-router.get('/auth/github/callback', passport.authenticate('github', { failureRedirect: '/signin' }, github.callback);
+router.get('/auth/github/callback', passport.authenticate('github', { failureRedirect: '/signin' }), github.callback);
 
 // 用户类
 router.get('/user/login', userController.login);
