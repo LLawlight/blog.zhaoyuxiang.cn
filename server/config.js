@@ -37,7 +37,7 @@ else {
 }
 
 config.GITHUB_OAUTH_ADDRESS =
-'http://github.com/login/oauth/authorize?response_type=code&client_id=' +
+'https://github.com/login/oauth/authorize?response_type=code&client_id=' +
 config.GITHUB_OAUTH.clientID +
 '&redirect_uri=' +
 config.GITHUB_OAUTH.callbackURL;
