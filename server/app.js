@@ -13,9 +13,9 @@ const apiRouterV1 = require('./api_router_v1');
 const auth        = require('./middlewares/auth');
 
 // passport
-const passport = require('passport')
-const GitHubStrategy = require('passport-github').Strategy;
-const githubStrategyMiddleware = require('./middlewares/github_strategy');
+// const passport = require('passport')
+// const GitHubStrategy = require('passport-github').Strategy;
+// const githubStrategyMiddleware = require('./middlewares/github_strategy');
 
 const app = express();
 
@@ -31,17 +31,17 @@ app.use(session({
   httpOnly: true
 }));
 
-// oauth 中间件
-app.use(passport.initialize());
+// // oauth 中间件
+// app.use(passport.initialize());
 
-// github oauth
-passport.serializeUser(function (user, done) {
-  done(null, user);
-});
-passport.deserializeUser(function (user, done) {
-  done(null, user);
-});
-passport.use(new GitHubStrategy(config.GITHUB_OAUTH, githubStrategyMiddleware));
+// // github oauth
+// passport.serializeUser(function (user, done) {
+//   done(null, user);
+// });
+// passport.deserializeUser(function (user, done) {
+//   done(null, user);
+// });
+// passport.use(new GitHubStrategy(config.GITHUB_OAUTH, githubStrategyMiddleware));
 
 app.use(auth.authUser);
 

@@ -30,8 +30,8 @@ if (!process.env.NODE_ENV || process.env.NODE_ENV == 'development') {
 else {
   // github 登陆的配置
   config.GITHUB_OAUTH = {
-    clientID: '3b361ba05ed0e5a820cd',
-    clientSecret: 'af63000a4cf4c0311c6df7d96e528586b5f455e1',
+    clientID: '0dcf34c3cea92290a532',
+    clientSecret: 'a30376b6a31017384612ecca0f30558785abc993',
     callbackURL: 'http://zhaoyuxiang.cn/auth/github'
   }
 }

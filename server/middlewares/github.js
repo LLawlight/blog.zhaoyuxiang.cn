@@ -16,7 +16,7 @@ exports.getGithubUser = function (req, res, next) {
       }
     })
     .then(function (response2) {
-      console.log('response2', response2);
+      console.log('response2');
       const data2 = response2.data
       req.user = {
         username: data2.login,
@@ -31,12 +31,20 @@ exports.getGithubUser = function (req, res, next) {
       next();
     })
     .catch(function (error) {
-      console.log('response2', error);
-      res.send(error)
+      console.log('error2');
+      res.status(403)
+      res.json({
+        success: false,
+        message: 'Github认证失败'
+      })
     });
   })
   .catch(function (error) {
-    console.log('response1', error);
-    res.send(error)
+    console.log('error1', error);
+    res.status(403)
+    res.json({
+      success: false,
+      message: 'Github认证失败'
+    })
   });
 };
