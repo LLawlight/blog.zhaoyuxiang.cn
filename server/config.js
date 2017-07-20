@@ -32,7 +32,7 @@ else {
   config.GITHUB_OAUTH = {
     clientID: '3b361ba05ed0e5a820cd',
     clientSecret: 'af63000a4cf4c0311c6df7d96e528586b5f455e1',
-    callbackURL: 'https://zhaoyuxiang.cn/auth/github'
+    callbackURL: 'http://zhaoyuxiang.cn/auth/github'
   }
 }
 
