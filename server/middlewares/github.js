@@ -8,6 +8,7 @@ exports.getGithubUser = function (req, res, next) {
     code: req.query.code
   })
   .then(function (response1) {
+    console.log('response1', response1);
     const accessToken = response1.data.split('&')[0].split('=')[1]
     axios.get('https://api.github.com/user', {
       params: {
@@ -15,6 +16,7 @@ exports.getGithubUser = function (req, res, next) {
       }
     })
     .then(function (response2) {
+      console.log('response2', response2);
       const data2 = response2.data
       req.user = {
         username: data2.login,
@@ -29,12 +31,12 @@ exports.getGithubUser = function (req, res, next) {
       next();
     })
     .catch(function (error) {
-      console.log(error);
+      console.log('response2', error);
       res.send(error)
     });
   })
   .catch(function (error) {
-    console.log(error);
+    console.log('response1', error);
     res.send(error)
   });
 };
