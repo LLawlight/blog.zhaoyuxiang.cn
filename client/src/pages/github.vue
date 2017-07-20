@@ -12,11 +12,9 @@ export default {
 
   methods: {
     signupByGithub() {
-      this.$http.get(`${__apiBase}v1/auth/github/callback`,
+      this.$http.post(`${__apiBase}v1/auth/github/callback`,
         {
-          params:{
-            'code': this.$route.query.code
-          }
+          'code': this.$route.query.code
         }
       ).then((res) => {
         this.$store.commit('getUserInfo', res.data.data)
