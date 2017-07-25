@@ -130,7 +130,7 @@ export default {
 
     .content {
       height: e("calc(100% - 70px)");
-      overflow-y: scroll;
+      overflow-y: auto;
 
       h2 {
         margin: 20px 0;

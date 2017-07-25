@@ -4,7 +4,9 @@
       <router-link to="/admin" exact>列表</router-link>
       <router-link to="/admin/create" exact>写文章</router-link>
     </div>
-    <router-view></router-view>
+    <div class="main">
+      <router-view></router-view>
+    </div>
   </div>
 </template>
 
@@ -36,7 +38,7 @@ export default {
     top: 0;
     left: 0;
     height: 100%;
-    background-color: #464847;
+    background-color: #1da1f2;
     width: 100px;
 
     a {

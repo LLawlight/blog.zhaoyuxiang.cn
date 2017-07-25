@@ -45,5 +45,12 @@ export default {
 };
 </script>
 
-<style lang="css">
+<style lang="less">
+.page-admin-list {
+  padding: 16px;
+
+  .post {
+    margin-bottom: 16px;
+  }
+}
 </style>

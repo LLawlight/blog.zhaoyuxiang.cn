@@ -33,6 +33,8 @@ export default {
 
 <style lang="less">
 .page-admin-create {
+  position: absolute;
   height: 100%;
+  width: e("calc(100% - 100px)");
 }
 </style>

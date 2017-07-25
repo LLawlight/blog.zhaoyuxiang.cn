@@ -34,6 +34,7 @@ if (process.env.NODE_ENV === "production") {
 } else {
   window.__apiBase = 'http://localhost:3000/api/'
 }
+console.log('env', process.env.NODE_ENV);
 
 window.__config = config
 

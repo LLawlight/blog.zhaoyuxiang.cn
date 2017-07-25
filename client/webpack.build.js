@@ -10,9 +10,9 @@ require('shelljs/global')
 var assetsPath = path.join(path.resolve(__dirname, './dist'), 'static')
 rm('-rf', assetsPath)
 mkdir('-p', assetsPath)
-cp('-R', 'static/*', assetsPath)
+cp('-R', './favicon.ico', path.resolve(__dirname, './dist'))
 
-var webpackConfig = merge(baseWebpackConfig(), {
+var webpackConfig = merge(baseWebpackConfig('"production"'), {
   module: {
     loaders: utils.styleLoaders({ sourceMap: true, extract: true })
   },
@@ -40,12 +40,6 @@ var webpackConfig = merge(baseWebpackConfig(), {
       }
     }),
 
-    // http://vuejs.github.io/vue-loader/en/workflow/production.html
-    new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: '"production"'
-      }
-    }),
     new webpack.optimize.UglifyJsPlugin({
       compress: {
         warnings: false

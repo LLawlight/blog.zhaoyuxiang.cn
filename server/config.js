@@ -20,7 +20,7 @@ const config = {
   admins: { LLawlight: true }
 };
 
-if (!process.env.NODE_ENV || process.env.NODE_ENV == 'development') {
+if (process.env.NODE_ENV == 'development') {
   config.GITHUB_OAUTH = {
     clientID: '8c2e74aa37f3b12445dd',
     clientSecret: '3e9d24e2f0e59177efe83a5590a36139071a4f59',

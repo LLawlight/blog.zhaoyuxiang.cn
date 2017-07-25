@@ -52,6 +52,13 @@ module.exports = (env) => {
     },
 
     plugins: [
+      // http://vuejs.github.io/vue-loader/en/workflow/production.html
+      new webpack.DefinePlugin({
+        'process.env': {
+          NODE_ENV: env || '"development"'
+        }
+      }),
+
       new webpack.optimize.CommonsChunkPlugin({
         name: 'vendor', // 指定公共 bundle 的名字。
         minChunks: function (module) {
